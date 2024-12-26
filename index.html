@@ -46,7 +46,8 @@
   <option value="acs1519">2015-2019 ACS</option>
   <option value="acs1620">2016-2020 ACS</option>
   <option value="acs1721">2017-2021 ACS</option>
-  <option value="acs1822" selected>2018-2022 ACS</option>
+  <option value="acs1822">2018-2022 ACS</option>
+  <option value="acs1822" selected>2019-2023 ACS</option>
 </select>
       <br /><br />
 <form class="form-horizontal">
@@ -205,14 +206,14 @@ $(document).ready(function() {
   //initial setup
   $('#sumlev').val('state');
   $('#statesel').val('8');  
-  $('#dataset').val('acs1822');  
+  $('#dataset').val('acs1923');  
   $('#tableSearch').val('');  
   $('#checkmoe').prop('checked', false);  
   
   $('.dontshow').hide();
   
   //load acs1014 tables into box
-  loadtables('acs1822','data');
+  loadtables('acs1923','data');
   
   
   //setup events
@@ -229,6 +230,10 @@ $(document).ready(function() {
   $( "#dataset" ).on( "change", function() {
   $('#tables').empty();
 
+    if($(this).val()=='acs1923'){
+      loadtables('acs1923','data');
+    }
+    
     if($(this).val()=='acs1822'){
       loadtables('acs1822','data');
     }
