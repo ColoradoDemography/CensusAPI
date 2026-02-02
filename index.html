@@ -47,7 +47,8 @@
   <option value="acs1620">2016-2020 ACS</option>
   <option value="acs1721">2017-2021 ACS</option>
   <option value="acs1822">2018-2022 ACS</option>
-  <option value="acs1923" selected>2019-2023 ACS</option>
+  <option value="acs1923">2019-2023 ACS</option>
+  <option value="acs2024" selected>2020-2024 ACS</option>
 </select>
       <br /><br />
 <form class="form-horizontal">
@@ -213,7 +214,7 @@ $(document).ready(function() {
   $('.dontshow').hide();
   
   //load acs1014 tables into box
-  loadtables('acs1923','data');
+  loadtables('acs2024','data');
   
   
   //setup events
@@ -230,6 +231,10 @@ $(document).ready(function() {
   $( "#dataset" ).on( "change", function() {
   $('#tables').empty();
 
+    if($(this).val()=='acs2024'){
+      loadtables('acs2024','data');
+    }
+    
     if($(this).val()=='acs1923'){
       loadtables('acs1923','data');
     }
